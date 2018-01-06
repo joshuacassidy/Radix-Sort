@@ -1,7 +1,7 @@
 public class RadixSort {
 
-    public int[] sort(int[] arr, int radix, int amountOfPlaces) {
-        for(int i= 0; i < amountOfPlaces; i++) {
+    public int[] sort(int[] arr, int radix) {
+        for(int i= 0; i < amountOfPlaces(arr); i++) {
             arr = sortHelper(arr, i, radix);
         }
         return arr;
@@ -38,4 +38,13 @@ public class RadixSort {
             System.out.print(i + " ");
         }
     }
+
+    public int amountOfPlaces(int[] arr) {
+        int max = 0;
+        for (int i: arr) {
+            max = (i+"").length() > (max+"").length() ? i : max;
+        }
+        return (max+"").length();
+    }
+
 }
